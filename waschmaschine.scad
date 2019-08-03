@@ -50,6 +50,6 @@ union() {
     }
 
         //noppe
-        translate([0, -gp_laenge/2+2, gp_hoehe]) rotate([15, 0, 0]) cube([loch_laenge*0.8, 6, 1.5],true);
+        translate([0, -gp_laenge/2+2, gp_hoehe+0.3]) rotate([20, 0, 0]) cube([loch_laenge*0.8, 6, 1.5],true);
 
 }
