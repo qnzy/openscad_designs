@@ -1,11 +1,11 @@
-base_height = 1;
-base_width = 5;
-base_length = 24;
-text_height = 2;
-text_size = 5;
+base_height = 2;
+base_width = 6;
+base_length = 30;
+text_height = 3;
+text_size = 6;
 text_shift = 2;
 unendlich = 1000;
-hole_radius = 1;
+hole_radius = 1.5;
 
 difference() {
     union() {
