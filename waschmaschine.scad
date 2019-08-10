@@ -1,4 +1,3 @@
-gp_laenge = 60;
 gp_breite = 19;
 gp_hoehe = 2.4;
 stift_radius = 3.8;
@@ -11,10 +10,10 @@ unendlich = 1000;
 loch_breite = 7;
 loch_laenge = 10;
 stuetze_hoehe = stift_hoehe;
-stuetze_laenge = 2*stift_radius+2.65+10;
+stuetze_laenge = 2*stift_radius+6;
 stuetze_breite = 12;
 stuetze_d1 = 2.5;
-stuetze_d2 = 10;
+gp_laenge = stuetze_laenge+40;
 
 
 union() {
@@ -23,8 +22,8 @@ union() {
     difference() {
         union() {
             // grundplatte rechteckig
-            translate([0,-stuetze_d2/2,gp_hoehe/2]) 
-                cube([gp_breite,gp_laenge-gp_breite/2-stuetze_d2,gp_hoehe], true);
+            translate([0,0,gp_hoehe/2]) 
+                cube([gp_breite,gp_laenge-gp_breite/2,gp_hoehe], true);
 
             // grundplatte rund
             translate([ 00, -(gp_laenge-gp_breite/2)/2, 00]) 
@@ -44,12 +43,18 @@ union() {
             cylinder(h=stift_hoehe, r1=stift_radius, r2=stift_radius);
 
             // stuetze
-            translate([ 0, (stuetze_laenge+stuetze_d1-stuetze_d2)/2, (stuetze_hoehe)/2]) 
-                cube([stuetze_breite, stuetze_laenge-stuetze_d1-stuetze_d2, stuetze_hoehe], true);
+            translate([ 0, (stuetze_laenge+stuetze_d1)/2, (stuetze_hoehe)/2]) 
+                cube([stuetze_breite, stuetze_laenge-stuetze_d1, stuetze_hoehe], true);
             translate([ 0, (stuetze_laenge)/2, (stuetze_hoehe)/2])
                 cube([2*stift_radius, stuetze_laenge, stuetze_hoehe], true);
 
             // rand
+//            hull() {
+//            translate([ 0, 0, stift_hoehe-rand_hoehe])
+//                cylinder(h=rand_hoehe, r1=stift_rand, r2=stift_rand);
+//            translate([ 0, 4, stift_hoehe-rand_hoehe])
+//                cylinder(h=rand_hoehe, r1=stift_rand, r2=stift_rand);
+//                }
             translate([ 0, 0, stift_hoehe-rand_hoehe])
                 cylinder(h=rand_hoehe, r1=stift_rand, r2=stift_rand);
             translate([ 0, stuetze_laenge/2, stift_hoehe-rand_hoehe+rand_hoehe/2]) 
