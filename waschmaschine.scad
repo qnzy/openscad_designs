@@ -23,8 +23,8 @@ union() {
     difference() {
         union() {
             // grundplatte rechteckig
-            translate([0,0,gp_hoehe/2]) 
-                cube([gp_breite,gp_laenge-gp_breite/2,gp_hoehe], true);
+            translate([0,-stuetze_d2/2,gp_hoehe/2]) 
+                cube([gp_breite,gp_laenge-gp_breite/2-stuetze_d2,gp_hoehe], true);
 
             // grundplatte rund
             translate([ 00, -(gp_laenge-gp_breite/2)/2, 00]) 
