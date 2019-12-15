@@ -8,6 +8,6 @@ module path_path3778(h)
 }
 
 difference() { 
-translate([0,0,2]) cube([40,40,10], true);
-path_path3778(8);
+cube([40,40,10], true);
+translate([0,0,-6]) path_path3778(12);
 }
